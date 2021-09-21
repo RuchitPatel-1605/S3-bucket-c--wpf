@@ -36,6 +36,7 @@ namespace AwsS3WpfLab1
         {
             bucketlist = new List<bucket>();
 
+            //to get the keys from APPSetting.json file...
             var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
                                 .AddJsonFile("AppSettings.json", optional: false, reloadOnChange: true);
 
@@ -44,7 +45,7 @@ namespace AwsS3WpfLab1
 
             var s3Client = new AmazonS3Client(accessKeyID, secretKey);
             var buckets = await s3Client.ListBucketsAsync();
-            //this.lbInfo.Content = "bucket name must not be uppercase and white spaces";
+            this.lbInfo.Content = "bucket name must not be uppercase and white spaces";
 
             foreach (var bucket in buckets.Buckets)
             {
@@ -58,8 +59,6 @@ namespace AwsS3WpfLab1
         // -------------------------------to create bucket----------------------
         private void createBucketClicked(object sender, RoutedEventArgs e)
         {
-            int numberOfBucketBefore = bucketlist.Count;
-            int numberOfBucketAfter;
             string newName = inputBucketName.Text;
             this.lbInfo.Content = newName;
             if (newName == "")
@@ -69,6 +68,7 @@ namespace AwsS3WpfLab1
             }
             else
             {
+                //to get the keys from APPSetting.json file...
                 var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
                                 .AddJsonFile("AppSettings.json", optional: true, reloadOnChange: true);
 

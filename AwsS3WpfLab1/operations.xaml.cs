@@ -42,6 +42,7 @@ namespace AwsS3WpfLab1
         {
             bucketlist = new List<bucket>();
 
+            //to get the keys from APPSetting.json file...
             var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
                                 .AddJsonFile("AppSettings.json", optional: false, reloadOnChange: true);
 
@@ -91,6 +92,7 @@ namespace AwsS3WpfLab1
         {
             string cbSelected = cbCountry.SelectionBoxItem.ToString();
 
+            //to get the keys from APPSetting.json file...
             var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
                                 .AddJsonFile("AppSettings.json", optional: false, reloadOnChange: true);
 
@@ -148,6 +150,7 @@ namespace AwsS3WpfLab1
                         ContentType = "text/plain"
                     };
 
+                    //to get the keys from APPSetting.json file...
                     var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
                                .AddJsonFile("AppSettings.json", optional: false, reloadOnChange: true);
 
